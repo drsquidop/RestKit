@@ -127,13 +127,14 @@
 // TODO: Need to inspect the property type here...
 + (id)objectWithPrimaryKeyValue:(id)value {
 	id primaryKeyValue = nil;
-	if ([value isKindOfClass:[NSString class]]) {
-		// Cast from string to a number
-		primaryKeyValue = [NSNumber numberWithInt:[(NSString*)value integerValue]];
-	} else {
+//DWT commented this out as I use string based primary keys
+//	if ([value isKindOfClass:[NSString class]]) {
+//		// Cast from string to a number
+//		primaryKeyValue = [NSNumber numberWithInt:[(NSString*)value integerValue]];
+//	} else {
 		// Make blind assumption here.
 		primaryKeyValue = value;
-	}
+//	}
 	NSPredicate* predicate = [NSPredicate predicateWithFormat:@"%K = %@", [self primaryKeyProperty], primaryKeyValue];
  	return [self objectWithPredicate:predicate];
 }

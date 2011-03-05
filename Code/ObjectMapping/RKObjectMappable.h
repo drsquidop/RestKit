@@ -67,6 +67,8 @@
 
 @end
 
+NSDictionary *serializeRelationshipsOfModel(NSObject<RKObjectMappable>*object);
+
 /**
  * Returns a dictionary containing all the mappable properties
  * and their values for a given mappable object.

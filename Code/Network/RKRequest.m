@@ -111,7 +111,9 @@
 // Setup the NSURLRequest. The request must be prepared right before dispatching
 - (void)prepareURLRequest {
 	[_URLRequest setHTTPMethod:[self HTTPMethod]];
-	[self setRequestBody];
+	if (_method != RKRequestMethodDELETE) {
+		[self setRequestBody];
+}
 	[self addHeadersToRequest];
 }
 

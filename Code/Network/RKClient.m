@@ -126,7 +126,8 @@ NSString* RKMakePathWithObject(NSString* path, id object) {
 }
 
 - (void)dealloc {
-	self.baseURL = nil;
+	//DWT calling =nil causes set accessor to execute during cleanup
+	[self.baseURL release];
 	self.username = nil;
 	self.password = nil;
 	self.serviceUnavailableAlertTitle = nil;
